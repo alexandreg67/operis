@@ -10,10 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -25,7 +22,7 @@ public class ProjectController {
 
     @PostMapping
     public ResponseEntity<ProjectDto> createProject(
-            @Valid CreateProjectPayload payload,
+            @Valid @RequestBody CreateProjectPayload payload,
             @RequestHeader("Authorization") String authorizationHeader) {
 
         String connectedUser = jwtConnectedUserResolver.extractConnectedUserEmail(authorizationHeader);

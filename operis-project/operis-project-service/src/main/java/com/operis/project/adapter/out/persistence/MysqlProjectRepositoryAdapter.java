@@ -15,6 +15,11 @@ public class MysqlProjectRepositoryAdapter implements ProjectRepository {
     public void create(Project project) {
 
         ProjectEntity projectEntity = new ProjectEntity();
+        projectEntity.setName(project.getName());
+        projectEntity.setDescription(project.getDescription());
+        projectEntity.setOwnerEmail(project.getOwner());
+
+        System.out.println("ProjectEntity: " + projectEntity);
 
         jpaProjectRepository.save(projectEntity);
 
