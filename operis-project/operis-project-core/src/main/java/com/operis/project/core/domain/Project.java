@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 public class Project {
-    private String id;
+    private Long id;
     private String name;
     private String description;
     private String owner;
@@ -16,15 +16,14 @@ public class Project {
 
     public Project(String name, String description, String owner) {
 
-        if (name == null || name.isEmpty()) {
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Project name cannot be null or empty");
         }
 
-        if (owner == null || owner.isEmpty()) {
+        if (owner == null || owner.isBlank()) {
             throw new IllegalArgumentException("Project owner cannot be null or empty");
         }
 
-        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.description = description;
         this.owner = owner;
