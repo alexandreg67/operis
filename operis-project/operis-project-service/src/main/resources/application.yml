@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:4444/operis?serverTimezone=UTC
+    url: jdbc:mysql://localhost:4444/operis_project?serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
